@@ -1,0 +1,12 @@
+[
+    { "name": "Australia", "usage_2017": 86.5 },
+    { "name": "Canada", "usage_2017": 92.7 },
+    { "name": "China", "usage_2017": 54.3 },
+    { "name": "China, HongKong SAR", "usage_2017": 89.4 },
+    { "name": "China, Macao SAR", "usage_2017": 83.2 },
+    { "name": "Japan", "usage_2017": 91.7 },
+    { "name": "Korea", "usage_2017": 95.1 },
+    { "name": "Singapore", "usage_2017": 84.5 },
+    { "name": "United Kingdom", "usage_2017": 90.4 },
+    { "name": "USA", "usage_2017": 87.3 }
+]

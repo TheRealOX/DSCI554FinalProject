@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <script src="./node_modules/jscharting/dist/jscharting.js"></script>
+    <script src="./node_modules/jscharting/dist/modules/toolbar.js"></script>
+
+    <script src="./node_modules/d3/dist/d3.min.js"></script>
+
+
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Bellota+Text&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="parallax/parallax.min.js"></script>
+
+    <title>NBA Championship Prediction</title>
+
+    <style>
+        #header {
+            background-image: url(img/page3-header.png);
+            background-size: cover;
+            height: 200px;
+        }
+
+        h2 {
+            color: #031e49;
+            font-weight: bold;
+        }
+
+        body {
+            font-family: 'Bellota Text', cursive;
+        }
+        p {
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header">
+
+        <div id="nav-container">
+            <img id="bmw-logo" src="img/nbalogo.png" alt="logo of nba">
+            <div id="nav">
+                <ul>
+                    <li><a href="main.html" class="color-change-1">Intro</a></li>
+                    <li><a href="page_1.html" class="color-change-1">The Glance</a></li>
+                    <li><a href="page_2.html" class="color-change-1">The Insights</a></li>
+                    <li id="active-nav"><a href="page_3.html" class="color-change-1">The Debunk</a></li>
+                </ul>
+            </div> <!-- nav-bar -->s
+        </div> <!-- nav-container -->
+    </div>
+
+
+    <div style="width: 70vw; margin: auto; margin-top: 80px; margin-bottom: 80px;">
+        <h2><strong> Data Source</strong></h2>
+
+        <p>This analysis aims to use historical regular season data of teams in the NBA to experiment with predicting a
+            team's Championship score at the end of the postseason. The metric is calculated as a team's total number of
+            wins in the playoffs divided by the total number of games the eventual champion wins. For example, the 2022
+            Golden State Warriors won a total of 16 games en route to their title, and for Utah Jazz, which won 2 games,
+            it would have a championship score of 2/16 = 0.125. As a result, if the model predicts a team to have the
+            highest championship score out of all teams that make the playoffs, that team will be the expected champion
+            of the season. </p>
+
+        <p>Data is obtained with automated HTML parsing from <a href="https://www.basketball-reference.com/">Basketball
+                Reference</a>, a site that has detailed stats on every NBA game dating
+            back to 1950, though the more advanced stats were introduced later on (for example, 3-pointer became
+            official in 1979). It also includes some additional information on previously won individual awards of
+            players on a team. For example, for the 2022 Philadelphia 76ers, its players have a combined 13 All-NBA team
+            nominations, 8 All-NBA defensive team selections, 3 NBA Championships, etc..
+            The original data contains 92 columns and 1573 rows, with a time ranging between 1950 and 2022. The
+            data contains some "NaN" values, most of which originate from the missing stats from the early period
+            between 1950 to 1980. As a result, we choose to remove all data before the 1980 season as the data after
+            1980 contains no empty value.</p>
+
+    </div>
+
+    <hr>
+
+    <div style="width: 70vw; margin: auto; margin-top: 80px; margin-bottom: 60px;">
+        <h2>What We Found</h2>
+        <p>
+            In this bar chart, we can use the slide bar to change team salary data in different years, and the
+            championships
+            from 2010 to 2022 are listed on the right side. We can discover around half of the championship teams rank
+            at the
+            top of each year’s salary. Thus, we believe that there is a positive correlation between the championship
+            and a
+            team’s spending on salary.
+        </p>
+    </div>
+
+    <div id="feature" style="width: 1200px; height: 800px; margin: 0px auto"></div>
+    <script src="charts/bar_features.js"></script>
+
+    <div class="parallax-window" data-parallax="scroll" data-image-src="img/page3-nba.jpg"></div>
+
+    <div style="width: 70vw; margin: auto; margin-top: 80px; margin-bottom: 60px;">
+        <h2>What We Found</h2>
+        <p>
+            The analysis performed through multiple repeats is sensitive to the split between training and test data as
+            well as the random state of the models. The results would vary to a certain degree, from predicting all past
+            3 NBA Champions correctly to predicting none correctly. Even though the model does not seem quite to capture
+            the defining characteristics of a team that would correlate with success in the playoffs, it is precisely
+            this randomness that anything could happen in a postseason that keeps fans on the edge of their seats. The
+            graphs below present the prediction of the NBA Champions of the past three seasons compared to the actual
+            championship score.
+        </p>
+    </div>
+
+    <div id="2020" style="width: 1200px; height: 800px; margin: 0px auto"></div>
+    <script src="charts/bar_xgboost_2020.js"></script>
+
+    <div id="2021" style="width: 1200px; height: 800px; margin: 0px auto"></div>
+    <script src="charts/bar_xgboost_2021.js"></script>
+
+    <div id="barMLDiv" style="width: 1200px; height: 800px; margin: 0px auto"></div>
+    <script src="charts/bar_ml.js"></script>
+
+    <div id="footer">
+
+        © Team LA PIZZA MARGHERITA 2022
+
+    </div>
+
+
+</body>
